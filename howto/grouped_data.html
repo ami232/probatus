@@ -775,7 +775,7 @@
 
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GroupKFold</span>
 
-<span class="n">cv</span> <span class="o">=</span> <span class="n">GroupKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">)</span>
+<span class="n">cv</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">GroupKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">))</span>
 </code></pre></div>
 
 </div>
@@ -783,7 +783,7 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Such variable can be passed to the <code>cv</code> parameter in <code>probatus</code> functions</p>
+<p>Such variable can be passed to the <code>cv</code> parameter in <code>probatus</code> as well as to hyperparameter optimization e.g. <code>RandomizedSearchCV</code> classes.</p>
 </div>
 </div>
 </div>
@@ -800,7 +800,7 @@
     <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
     <span class="s1">&#39;max_leaf_nodes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
 <span class="p">}</span>
-<span class="n">search</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">search</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="n">shap_elimination</span> <span class="o">=</span> <span class="n">ShapRFECV</span><span class="p">(</span>
     <span class="n">clf</span><span class="o">=</span><span class="n">search</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;roc_auc&#39;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
@@ -836,114 +836,122 @@
 </style>
 <table border="1" class="dataframe">
 <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>num_features</th>
-      <th>features_set</th>
-      <th>eliminated_features</th>
-      <th>train_metric_mean</th>
-      <th>train_metric_std</th>
-      <th>val_metric_mean</th>
-      <th>val_metric_std</th>
-    </tr>
-  </thead>
+<tr style="text-align: right;">
+<th></th>
+<th>num_features</th>
+<th>features_set</th>
+<th>eliminated_features</th>
+<th>train_metric_mean</th>
+<th>train_metric_std</th>
+<th>val_metric_mean</th>
+<th>val_metric_std</th>
+</tr>
+</thead>
 <tbody>
-    <tr>
-      <th>1</th>
-      <td>10</td>
-      <td>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</td>
-      <td>[8, 7]</td>
-      <td>1.000</td>
-      <td>0.001</td>
-      <td>0.957</td>
-      <td>0.086</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>8</td>
-      <td>[0, 1, 2, 3, 4, 5, 6, 9]</td>
-      <td>[5]</td>
-      <td>0.999</td>
-      <td>0.001</td>
-      <td>0.966</td>
-      <td>0.055</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>7</td>
-      <td>[0, 1, 2, 3, 4, 6, 9]</td>
-      <td>[4]</td>
-      <td>1.000</td>
-      <td>0.000</td>
-      <td>0.942</td>
-      <td>0.114</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>6</td>
-      <td>[0, 1, 2, 3, 6, 9]</td>
-      <td>[9]</td>
-      <td>0.999</td>
-      <td>0.001</td>
-      <td>0.980</td>
-      <td>0.032</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>5</td>
-      <td>[0, 1, 2, 3, 6]</td>
-      <td>[6]</td>
-      <td>1.000</td>
-      <td>0.000</td>
-      <td>0.960</td>
-      <td>0.073</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>4</td>
-      <td>[0, 1, 2, 3]</td>
-      <td>[1]</td>
-      <td>0.999</td>
-      <td>0.001</td>
-      <td>0.951</td>
-      <td>0.091</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>3</td>
-      <td>[0, 2, 3]</td>
-      <td>[3]</td>
-      <td>0.999</td>
-      <td>0.001</td>
-      <td>0.971</td>
-      <td>0.052</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>2</td>
-      <td>[0, 2]</td>
-      <td>[0]</td>
-      <td>0.998</td>
-      <td>0.002</td>
-      <td>0.925</td>
-      <td>0.122</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>1</td>
-      <td>[2]</td>
-      <td>[]</td>
-      <td>0.998</td>
-      <td>0.002</td>
-      <td>0.938</td>
-      <td>0.098</td>
-    </tr>
-  </tbody>
+<tr>
+<th>1</th>
+<td>10</td>
+<td>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</td>
+<td>[8, 7]</td>
+<td>1.000</td>
+<td>0.001</td>
+<td>0.957</td>
+<td>0.086</td>
+</tr>
+<tr>
+<th>2</th>
+<td>8</td>
+<td>[0, 1, 2, 3, 4, 5, 6, 9]</td>
+<td>[5]</td>
+<td>0.999</td>
+<td>0.001</td>
+<td>0.966</td>
+<td>0.055</td>
+</tr>
+<tr>
+<th>3</th>
+<td>7</td>
+<td>[0, 1, 2, 3, 4, 6, 9]</td>
+<td>[4]</td>
+<td>1.000</td>
+<td>0.000</td>
+<td>0.942</td>
+<td>0.114</td>
+</tr>
+<tr>
+<th>4</th>
+<td>6</td>
+<td>[0, 1, 2, 3, 6, 9]</td>
+<td>[9]</td>
+<td>0.999</td>
+<td>0.001</td>
+<td>0.980</td>
+<td>0.032</td>
+</tr>
+<tr>
+<th>5</th>
+<td>5</td>
+<td>[0, 1, 2, 3, 6]</td>
+<td>[6]</td>
+<td>1.000</td>
+<td>0.000</td>
+<td>0.960</td>
+<td>0.073</td>
+</tr>
+<tr>
+<th>6</th>
+<td>4</td>
+<td>[0, 1, 2, 3]</td>
+<td>[1]</td>
+<td>0.999</td>
+<td>0.001</td>
+<td>0.951</td>
+<td>0.091</td>
+</tr>
+<tr>
+<th>7</th>
+<td>3</td>
+<td>[0, 2, 3]</td>
+<td>[3]</td>
+<td>0.999</td>
+<td>0.001</td>
+<td>0.971</td>
+<td>0.052</td>
+</tr>
+<tr>
+<th>8</th>
+<td>2</td>
+<td>[0, 2]</td>
+<td>[0]</td>
+<td>0.998</td>
+<td>0.002</td>
+<td>0.925</td>
+<td>0.122</td>
+</tr>
+<tr>
+<th>9</th>
+<td>1</td>
+<td>[2]</td>
+<td>[]</td>
+<td>0.998</td>
+<td>0.002</td>
+<td>0.938</td>
+<td>0.098</td>
+</tr>
+</tbody>
 </table>
 </div>
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
 </div>
 </div>
                 

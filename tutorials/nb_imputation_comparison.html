@@ -903,33 +903,33 @@ Support for user-supplied imputation strategies for categorical columns can be a
 </style>
 <table border="1" class="dataframe">
 <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>0</th>
-    </tr>
-  </thead>
+<tr style="text-align: right;">
+<th></th>
+<th>0</th>
+</tr>
+</thead>
 <tbody>
-    <tr>
-      <th>f_0</th>
-      <td>0.209</td>
-    </tr>
-    <tr>
-      <th>f_1</th>
-      <td>0.215</td>
-    </tr>
-    <tr>
-      <th>f_2</th>
-      <td>0.204</td>
-    </tr>
-    <tr>
-      <th>f_3</th>
-      <td>0.185</td>
-    </tr>
-    <tr>
-      <th>f_4</th>
-      <td>0.219</td>
-    </tr>
-  </tbody>
+<tr>
+<th>f_0</th>
+<td>0.209</td>
+</tr>
+<tr>
+<th>f_1</th>
+<td>0.215</td>
+</tr>
+<tr>
+<th>f_2</th>
+<td>0.204</td>
+</tr>
+<tr>
+<th>f_3</th>
+<td>0.185</td>
+</tr>
+<tr>
+<th>f_4</th>
+<td>0.219</td>
+</tr>
+</tbody>
 </table>
 </div>
 </div>
@@ -970,9 +970,9 @@ The model performance against the unimputed dataset can be found in <code>No Imp
     <span class="p">}</span>
 
 <span class="n">clf</span> <span class="o">=</span> <span class="n">lgb</span><span class="o">.</span><span class="n">LGBMClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">cmp</span> <span class="o">=</span> <span class="n">ImputationSelector</span><span class="p">(</span><span class="n">clf</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span><span class="n">strategies</span><span class="o">=</span><span class="n">strategies</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span><span class="n">model_na_support</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">cmp</span><span class="o">.</span><span class="n">fit_compute</span><span class="p">(</span><span class="n">X_missing</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="n">result_plot</span> <span class="o">=</span> <span class="n">cmp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="nb">cmp</span> <span class="o">=</span> <span class="n">ImputationSelector</span><span class="p">(</span><span class="n">clf</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span><span class="n">strategies</span><span class="o">=</span><span class="n">strategies</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span><span class="n">model_na_support</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">cmp</span><span class="o">.</span><span class="n">fit_compute</span><span class="p">(</span><span class="n">X_missing</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">result_plot</span> <span class="o">=</span> <span class="nb">cmp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </code></pre></div>
 
 </div>
@@ -1106,7 +1106,10 @@ L 0 3.5
       </g>
      </g>
      <g id="text_1">
-      <!-- 0.0 -->
+      
+<!-- 0.0 -->
+
+
       <g transform="translate(73.034673 256.316563)scale(0.1 -0.1)">
        <defs>
         <path d="M 31.78125 66.40625 
@@ -1150,7 +1153,10 @@ z
       </g>
      </g>
      <g id="text_2">
-      <!-- 0.2 -->
+      
+<!-- 0.2 -->
+
+
       <g transform="translate(136.097442 256.316563)scale(0.1 -0.1)">
        <defs>
         <path d="M 19.1875 8.296875 
@@ -1191,7 +1197,10 @@ z
       </g>
      </g>
      <g id="text_3">
-      <!-- 0.4 -->
+      
+<!-- 0.4 -->
+
+
       <g transform="translate(199.160211 256.316563)scale(0.1 -0.1)">
        <defs>
         <path d="M 37.796875 64.3125 
@@ -1225,7 +1234,10 @@ z
       </g>
      </g>
      <g id="text_4">
-      <!-- 0.6 -->
+      
+<!-- 0.6 -->
+
+
       <g transform="translate(262.22298 256.316563)scale(0.1 -0.1)">
        <defs>
         <path d="M 33.015625 40.375 
@@ -1272,7 +1284,10 @@ z
       </g>
      </g>
      <g id="text_5">
-      <!-- 0.8 -->
+      
+<!-- 0.8 -->
+
+
       <g transform="translate(325.285749 256.316563)scale(0.1 -0.1)">
        <defs>
         <path d="M 31.78125 34.625 
@@ -1328,7 +1343,10 @@ z
       </g>
      </g>
      <g id="text_6">
-      <!-- 1.0 -->
+      
+<!-- 1.0 -->
+
+
       <g transform="translate(388.348517 256.316563)scale(0.1 -0.1)">
        <defs>
         <path d="M 12.40625 8.296875 
@@ -1352,7 +1370,10 @@ z
      </g>
     </g>
     <g id="text_7">
-     <!-- ROC AUC Score -->
+     
+<!-- ROC AUC Score -->
+
+
      <g transform="translate(210.710703 269.994688)scale(0.1 -0.1)">
       <defs>
        <path d="M 44.390625 34.1875 
@@ -1598,7 +1619,10 @@ L -3.5 0
       </g>
      </g>
      <g id="text_8">
-      <!-- KNN Imputer -->
+      
+<!-- KNN Imputer -->
+
+
       <g transform="translate(27.077435 242.562871)rotate(-45)scale(0.1 -0.1)">
        <defs>
         <path d="M 9.8125 72.90625 
@@ -1751,7 +1775,10 @@ z
       </g>
      </g>
      <g id="text_9">
-      <!-- Median Imputer -->
+      
+<!-- Median Imputer -->
+
+
       <g transform="translate(16.574689 210.710404)rotate(-45)scale(0.1 -0.1)">
        <defs>
         <path d="M 9.8125 72.90625 
@@ -1882,7 +1909,10 @@ z
       </g>
      </g>
      <g id="text_10">
-      <!-- No Imputation -->
+      
+<!-- No Imputation -->
+
+
       <g transform="translate(22.058081 162.8718)rotate(-45)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-78"/>
        <use x="74.804688" xlink:href="#DejaVuSans-111"/>
@@ -1907,7 +1937,10 @@ z
       </g>
      </g>
      <g id="text_11">
-      <!-- Iterative Imputer -->
+      
+<!-- Iterative Imputer -->
+
+
       <g transform="translate(12.572907 130.001762)rotate(-45)scale(0.1 -0.1)">
        <defs>
         <path d="M 2.984375 54.6875 
@@ -1990,7 +2023,10 @@ L 417.741421 22.318125
 " style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"/>
    </g>
    <g id="text_12">
-    <!-- 0.871 -->
+    
+<!-- 0.871 -->
+
+
     <g transform="translate(361.432898 201.230726)scale(0.0833 -0.0833)">
      <defs>
       <path d="M 8.203125 72.90625 
@@ -2011,7 +2047,10 @@ z
     </g>
    </g>
    <g id="text_13">
-    <!-- 0.872 -->
+    
+<!-- 0.872 -->
+
+
     <g transform="translate(361.763977 158.875514)scale(0.0833 -0.0833)">
      <use xlink:href="#DejaVuSans-48"/>
      <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -2021,7 +2060,10 @@ z
     </g>
    </g>
    <g id="text_14">
-    <!-- 0.883 -->
+    
+<!-- 0.883 -->
+
+
     <g transform="translate(365.405852 116.520301)scale(0.0833 -0.0833)">
      <defs>
       <path d="M 40.578125 39.3125 
@@ -2065,7 +2107,10 @@ z
     </g>
    </g>
    <g id="text_15">
-    <!-- 0.859 -->
+    
+<!-- 0.859 -->
+
+
     <g transform="translate(357.459943 74.165089)scale(0.0833 -0.0833)">
      <defs>
       <path d="M 10.796875 72.90625 
@@ -2131,7 +2176,10 @@ z
     </g>
    </g>
    <g id="text_16">
-    <!-- 0.76 -->
+    
+<!-- 0.76 -->
+
+
     <g transform="translate(327.333051 186.406402)scale(0.0833 -0.0833)">
      <use xlink:href="#DejaVuSans-48"/>
      <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -2140,7 +2188,10 @@ z
     </g>
    </g>
    <g id="text_17">
-    <!-- 0.766 -->
+    
+<!-- 0.766 -->
+
+
     <g transform="translate(326.669547 144.051189)scale(0.0833 -0.0833)">
      <use xlink:href="#DejaVuSans-48"/>
      <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -2150,7 +2201,10 @@ z
     </g>
    </g>
    <g id="text_18">
-    <!-- 0.773 -->
+    
+<!-- 0.773 -->
+
+
     <g transform="translate(328.987103 101.695977)scale(0.0833 -0.0833)">
      <use xlink:href="#DejaVuSans-48"/>
      <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -2160,7 +2214,10 @@ z
     </g>
    </g>
    <g id="text_19">
-    <!-- 0.787 -->
+    
+<!-- 0.787 -->
+
+
     <g transform="translate(333.622217 59.340765)scale(0.0833 -0.0833)">
      <use xlink:href="#DejaVuSans-48"/>
      <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -2170,7 +2227,10 @@ z
     </g>
    </g>
    <g id="text_20">
-    <!-- Imputation Techniques Comparision -->
+    
+<!-- Imputation Techniques Comparision -->
+
+
     <g transform="translate(141.874766 16.318125)scale(0.12 -0.12)">
      <defs>
       <path d="M -0.296875 72.90625 
@@ -2317,7 +2377,10 @@ z
 " style="fill:#1f77b4;"/>
     </g>
     <g id="text_21">
-     <!-- CV-Train -->
+     
+<!-- CV-Train -->
+
+
      <g transform="translate(285.200796 38.916563)scale(0.1 -0.1)">
       <defs>
        <path d="M 28.609375 0 
@@ -2355,7 +2418,10 @@ z
 " style="fill:#ff7f0e;"/>
     </g>
     <g id="text_22">
-     <!-- CV-Test -->
+     
+<!-- CV-Test -->
+
+
      <g transform="translate(373.119546 38.916563)scale(0.1 -0.1)">
       <use xlink:href="#DejaVuSans-67"/>
       <use x="69.824219" xlink:href="#DejaVuSans-86"/>
@@ -2392,9 +2458,9 @@ z
 <div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
-<span class="n">cmp</span> <span class="o">=</span> <span class="n">ImputationSelector</span><span class="p">(</span><span class="n">clf</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span><span class="n">strategies</span><span class="o">=</span><span class="n">strategies</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">cmp</span><span class="o">.</span><span class="n">fit_compute</span><span class="p">(</span><span class="n">X_missing</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="n">result_plot</span><span class="o">=</span><span class="n">cmp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="nb">cmp</span> <span class="o">=</span> <span class="n">ImputationSelector</span><span class="p">(</span><span class="n">clf</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span><span class="n">strategies</span><span class="o">=</span><span class="n">strategies</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">cmp</span><span class="o">.</span><span class="n">fit_compute</span><span class="p">(</span><span class="n">X_missing</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">result_plot</span><span class="o">=</span><span class="nb">cmp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </code></pre></div>
 
 </div>
@@ -2512,7 +2578,10 @@ L 0 3.5
       </g>
      </g>
      <g id="text_1">
-      <!-- 0.0 -->
+      
+<!-- 0.0 -->
+
+
       <g transform="translate(73.034673 256.316563)scale(0.1 -0.1)">
        <defs>
         <path d="M 31.78125 66.40625 
@@ -2556,7 +2625,10 @@ z
       </g>
      </g>
      <g id="text_2">
-      <!-- 0.2 -->
+      
+<!-- 0.2 -->
+
+
       <g transform="translate(143.900663 256.316563)scale(0.1 -0.1)">
        <defs>
         <path d="M 19.1875 8.296875 
@@ -2597,7 +2669,10 @@ z
       </g>
      </g>
      <g id="text_3">
-      <!-- 0.4 -->
+      
+<!-- 0.4 -->
+
+
       <g transform="translate(214.766654 256.316563)scale(0.1 -0.1)">
        <defs>
         <path d="M 37.796875 64.3125 
@@ -2631,7 +2706,10 @@ z
       </g>
      </g>
      <g id="text_4">
-      <!-- 0.6 -->
+      
+<!-- 0.6 -->
+
+
       <g transform="translate(285.632644 256.316563)scale(0.1 -0.1)">
        <defs>
         <path d="M 33.015625 40.375 
@@ -2678,7 +2756,10 @@ z
       </g>
      </g>
      <g id="text_5">
-      <!-- 0.8 -->
+      
+<!-- 0.8 -->
+
+
       <g transform="translate(356.498634 256.316563)scale(0.1 -0.1)">
        <defs>
         <path d="M 31.78125 34.625 
@@ -2728,7 +2809,10 @@ z
      </g>
     </g>
     <g id="text_6">
-     <!-- ROC AUC Score -->
+     
+<!-- ROC AUC Score -->
+
+
      <g transform="translate(210.710703 269.994688)scale(0.1 -0.1)">
       <defs>
        <path d="M 44.390625 34.1875 
@@ -2974,7 +3058,10 @@ L -3.5 0
       </g>
      </g>
      <g id="text_7">
-      <!-- Median Imputer -->
+      
+<!-- Median Imputer -->
+
+
       <g transform="translate(16.574689 247.575126)rotate(-45)scale(0.1 -0.1)">
        <defs>
         <path d="M 9.8125 72.90625 
@@ -3208,7 +3295,10 @@ z
       </g>
      </g>
      <g id="text_8">
-      <!-- KNN Imputer -->
+      
+<!-- KNN Imputer -->
+
+
       <g transform="translate(27.077435 179.030053)rotate(-45)scale(0.1 -0.1)">
        <defs>
         <path d="M 9.8125 72.90625 
@@ -3258,7 +3348,10 @@ z
       </g>
      </g>
      <g id="text_9">
-      <!-- Iterative Imputer -->
+      
+<!-- Iterative Imputer -->
+
+
       <g transform="translate(12.572907 135.492253)rotate(-45)scale(0.1 -0.1)">
        <defs>
         <path d="M 2.984375 54.6875 
@@ -3335,7 +3428,10 @@ L 417.741421 22.318125
 " style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"/>
    </g>
    <g id="text_10">
-    <!-- 0.78 -->
+    
+<!-- 0.78 -->
+
+
     <g transform="translate(365.908833 198.485481)scale(0.0833 -0.0833)">
      <defs>
       <path d="M 8.203125 72.90625 
@@ -3355,7 +3451,10 @@ z
     </g>
    </g>
    <g id="text_11">
-    <!-- 0.781 -->
+    
+<!-- 0.781 -->
+
+
     <g transform="translate(363.630898 140.443153)scale(0.0833 -0.0833)">
      <defs>
       <path d="M 12.40625 8.296875 
@@ -3380,7 +3479,10 @@ z
     </g>
    </g>
    <g id="text_12">
-    <!-- 0.791 -->
+    
+<!-- 0.791 -->
+
+
     <g transform="translate(367.351363 82.400825)scale(0.0833 -0.0833)">
      <defs>
       <path d="M 10.984375 1.515625 
@@ -3422,7 +3524,10 @@ z
     </g>
    </g>
    <g id="text_13">
-    <!-- 0.753 -->
+    
+<!-- 0.753 -->
+
+
     <g transform="translate(353.213598 178.170666)scale(0.0833 -0.0833)">
      <defs>
       <path d="M 10.796875 72.90625 
@@ -3490,7 +3595,10 @@ z
     </g>
    </g>
    <g id="text_14">
-    <!-- 0.762 -->
+    
+<!-- 0.762 -->
+
+
     <g transform="translate(356.562016 120.128338)scale(0.0833 -0.0833)">
      <use xlink:href="#DejaVuSans-48"/>
      <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -3500,7 +3608,10 @@ z
     </g>
    </g>
    <g id="text_15">
-    <!-- 0.775 -->
+    
+<!-- 0.775 -->
+
+
     <g transform="translate(361.398619 62.08601)scale(0.0833 -0.0833)">
      <use xlink:href="#DejaVuSans-48"/>
      <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -3510,7 +3621,10 @@ z
     </g>
    </g>
    <g id="text_16">
-    <!-- Imputation Techniques Comparision -->
+    
+<!-- Imputation Techniques Comparision -->
+
+
     <g transform="translate(141.874766 16.318125)scale(0.12 -0.12)">
      <defs>
       <path d="M -0.296875 72.90625 
@@ -3657,7 +3771,10 @@ z
 " style="fill:#1f77b4;"/>
     </g>
     <g id="text_17">
-     <!-- CV-Train -->
+     
+<!-- CV-Train -->
+
+
      <g transform="translate(285.200796 38.916563)scale(0.1 -0.1)">
       <defs>
        <path d="M 28.609375 0 
@@ -3695,7 +3812,10 @@ z
 " style="fill:#ff7f0e;"/>
     </g>
     <g id="text_18">
-     <!-- CV-Test -->
+     
+<!-- CV-Test -->
+
+
      <g transform="translate(373.119546 38.916563)scale(0.1 -0.1)">
       <use xlink:href="#DejaVuSans-67"/>
       <use x="69.824219" xlink:href="#DejaVuSans-86"/>
@@ -3735,9 +3855,9 @@ z
 <span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
 <span class="n">steps</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;LR&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">())]</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
-<span class="n">cmp</span> <span class="o">=</span> <span class="n">ImputationSelector</span><span class="p">(</span><span class="n">clf</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span><span class="n">strategies</span><span class="o">=</span><span class="n">strategies</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">model_na_support</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">cmp</span><span class="o">.</span><span class="n">fit_compute</span><span class="p">(</span><span class="n">X_missing</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="n">result_plot</span><span class="o">=</span><span class="n">cmp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="nb">cmp</span> <span class="o">=</span> <span class="n">ImputationSelector</span><span class="p">(</span><span class="n">clf</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span><span class="n">strategies</span><span class="o">=</span><span class="n">strategies</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">model_na_support</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">cmp</span><span class="o">.</span><span class="n">fit_compute</span><span class="p">(</span><span class="n">X_missing</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">result_plot</span><span class="o">=</span><span class="nb">cmp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </code></pre></div>
 
 </div>
@@ -3855,7 +3975,10 @@ L 0 3.5
       </g>
      </g>
      <g id="text_1">
-      <!-- 0.0 -->
+      
+<!-- 0.0 -->
+
+
       <g transform="translate(73.034673 256.316563)scale(0.1 -0.1)">
        <defs>
         <path d="M 31.78125 66.40625 
@@ -3899,7 +4022,10 @@ z
       </g>
      </g>
      <g id="text_2">
-      <!-- 0.2 -->
+      
+<!-- 0.2 -->
+
+
       <g transform="translate(143.633244 256.316563)scale(0.1 -0.1)">
        <defs>
         <path d="M 19.1875 8.296875 
@@ -3940,7 +4066,10 @@ z
       </g>
      </g>
      <g id="text_3">
-      <!-- 0.4 -->
+      
+<!-- 0.4 -->
+
+
       <g transform="translate(214.231816 256.316563)scale(0.1 -0.1)">
        <defs>
         <path d="M 37.796875 64.3125 
@@ -3974,7 +4103,10 @@ z
       </g>
      </g>
      <g id="text_4">
-      <!-- 0.6 -->
+      
+<!-- 0.6 -->
+
+
       <g transform="translate(284.830387 256.316563)scale(0.1 -0.1)">
        <defs>
         <path d="M 33.015625 40.375 
@@ -4021,7 +4153,10 @@ z
       </g>
      </g>
      <g id="text_5">
-      <!-- 0.8 -->
+      
+<!-- 0.8 -->
+
+
       <g transform="translate(355.428959 256.316563)scale(0.1 -0.1)">
        <defs>
         <path d="M 31.78125 34.625 
@@ -4071,7 +4206,10 @@ z
      </g>
     </g>
     <g id="text_6">
-     <!-- ROC AUC Score -->
+     
+<!-- ROC AUC Score -->
+
+
      <g transform="translate(210.710703 269.994688)scale(0.1 -0.1)">
       <defs>
        <path d="M 44.390625 34.1875 
@@ -4317,7 +4455,10 @@ L -3.5 0
       </g>
      </g>
      <g id="text_7">
-      <!-- Median Imputer -->
+      
+<!-- Median Imputer -->
+
+
       <g transform="translate(16.574689 247.575126)rotate(-45)scale(0.1 -0.1)">
        <defs>
         <path d="M 9.8125 72.90625 
@@ -4551,7 +4692,10 @@ z
       </g>
      </g>
      <g id="text_8">
-      <!-- KNN Imputer -->
+      
+<!-- KNN Imputer -->
+
+
       <g transform="translate(27.077435 179.030053)rotate(-45)scale(0.1 -0.1)">
        <defs>
         <path d="M 9.8125 72.90625 
@@ -4601,7 +4745,10 @@ z
       </g>
      </g>
      <g id="text_9">
-      <!-- Iterative Imputer -->
+      
+<!-- Iterative Imputer -->
+
+
       <g transform="translate(12.572907 135.492253)rotate(-45)scale(0.1 -0.1)">
        <defs>
         <path d="M 2.984375 54.6875 
@@ -4678,7 +4825,10 @@ L 417.741421 22.318125
 " style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"/>
    </g>
    <g id="text_10">
-    <!-- 0.78 -->
+    
+<!-- 0.78 -->
+
+
     <g transform="translate(364.813753 198.485481)scale(0.0833 -0.0833)">
      <defs>
       <path d="M 8.203125 72.90625 
@@ -4698,7 +4848,10 @@ z
     </g>
    </g>
    <g id="text_11">
-    <!-- 0.781 -->
+    
+<!-- 0.781 -->
+
+
     <g transform="translate(362.534414 140.443153)scale(0.0833 -0.0833)">
      <defs>
       <path d="M 12.40625 8.296875 
@@ -4723,7 +4876,10 @@ z
     </g>
    </g>
    <g id="text_12">
-    <!-- 0.792 -->
+    
+<!-- 0.792 -->
+
+
     <g transform="translate(366.611482 82.400825)scale(0.0833 -0.0833)">
      <defs>
       <path d="M 10.984375 1.515625 
@@ -4765,7 +4921,10 @@ z
     </g>
    </g>
    <g id="text_13">
-    <!-- 0.753 -->
+    
+<!-- 0.753 -->
+
+
     <g transform="translate(352.156424 178.170666)scale(0.0833 -0.0833)">
      <defs>
       <path d="M 10.796875 72.90625 
@@ -4833,7 +4992,10 @@ z
     </g>
    </g>
    <g id="text_14">
-    <!-- 0.762 -->
+    
+<!-- 0.762 -->
+
+
     <g transform="translate(355.492207 120.128338)scale(0.0833 -0.0833)">
      <use xlink:href="#DejaVuSans-48"/>
      <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -4843,7 +5005,10 @@ z
     </g>
    </g>
    <g id="text_15">
-    <!-- 0.772 -->
+    
+<!-- 0.772 -->
+
+
     <g transform="translate(359.198632 62.08601)scale(0.0833 -0.0833)">
      <use xlink:href="#DejaVuSans-48"/>
      <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -4853,7 +5018,10 @@ z
     </g>
    </g>
    <g id="text_16">
-    <!-- Imputation Techniques Comparision -->
+    
+<!-- Imputation Techniques Comparision -->
+
+
     <g transform="translate(141.874766 16.318125)scale(0.12 -0.12)">
      <defs>
       <path d="M -0.296875 72.90625 
@@ -5000,7 +5168,10 @@ z
 " style="fill:#1f77b4;"/>
     </g>
     <g id="text_17">
-     <!-- CV-Train -->
+     
+<!-- CV-Train -->
+
+
      <g transform="translate(285.200796 38.916563)scale(0.1 -0.1)">
       <defs>
        <path d="M 28.609375 0 
@@ -5038,7 +5209,10 @@ z
 " style="fill:#ff7f0e;"/>
     </g>
     <g id="text_18">
-     <!-- CV-Test -->
+     
+<!-- CV-Test -->
+
+
      <g transform="translate(373.119546 38.916563)scale(0.1 -0.1)">
       <use xlink:href="#DejaVuSans-67"/>
       <use x="69.824219" xlink:href="#DejaVuSans-86"/>

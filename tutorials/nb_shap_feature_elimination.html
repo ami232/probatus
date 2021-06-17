@@ -849,11 +849,11 @@
 <h1 id="shaprfecv-recursive-feature-elimination-using-shap-importance">ShapRFECV - Recursive Feature Elimination using SHAP importance<a class="headerlink" href="#shaprfecv-recursive-feature-elimination-using-shap-importance" title="Permanent link">&para;</a></h1>
 <p><a href="https://colab.research.google.com/github/ing-bank/probatus/blob/master/docs/tutorials/nb_shap_feature_elimination.ipynb"><img alt="open in colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
 <p>Recursive Feature Elimination allows you to efficiently reduce the number of features in your dataset, without losing the predictive power of the model. <code>probatus</code> implements the following feature elimination routine for <strong>tree-based &amp; linear models</strong>:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">While</span> <span class="k">any</span> <span class="n">features</span> <span class="k">left</span><span class="p">,</span> <span class="k">iterate</span><span class="o">:</span>
-    <span class="mf">1.</span> <span class="p">(</span><span class="k">Optional</span><span class="p">)</span> <span class="n">Tune</span> <span class="n">hyperparameters</span><span class="p">,</span> <span class="k">in</span> <span class="k">case</span> <span class="n">sklearn</span> <span class="n">compatible</span> <span class="n">search</span> <span class="n">CV</span> <span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.</span> <span class="n n-Quoted">`GridSearchCV`</span> <span class="k">or</span>
-        <span class="n n-Quoted">`RandomizedSearchCV`</span> <span class="k">or</span> <span class="n n-Quoted">`BayesSearchCV`</span><span class="n">are</span> <span class="n">passed</span> <span class="k">as</span> <span class="n">clf</span><span class="p">,</span>
-    <span class="mf">2.</span> <span class="n">Calculate</span> <span class="n">SHAP</span> <span class="n">feature</span> <span class="n">importance</span> <span class="k">using</span> <span class="k">Cross</span><span class="o">-</span><span class="k">Validation</span><span class="p">,</span>
-    <span class="mf">3.</span> <span class="k">Remove</span> <span class="n n-Quoted">`step`</span> <span class="n">lowest</span> <span class="n">importance</span> <span class="n">features</span><span class="p">.</span>
+<div class="codehilite"><pre><span></span><code><span class="k">While</span> <span class="n">any</span> <span class="n">features</span> <span class="k">left</span><span class="p">,</span> <span class="k">iterate</span><span class="p">:</span>
+    <span class="mi">1</span><span class="p">.</span> <span class="p">(</span><span class="n">Optional</span><span class="p">)</span> <span class="n">Tune</span> <span class="n">hyperparameters</span><span class="p">,</span> <span class="k">in</span> <span class="k">case</span> <span class="n">sklearn</span> <span class="n">compatible</span> <span class="n">search</span> <span class="n">CV</span> <span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.</span> <span class="ss">`GridSearchCV`</span> <span class="k">or</span>
+        <span class="ss">`RandomizedSearchCV`</span> <span class="k">or</span> <span class="ss">`BayesSearchCV`</span><span class="n">are</span> <span class="n">passed</span> <span class="k">as</span> <span class="n">clf</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">.</span> <span class="n">Calculate</span> <span class="n">SHAP</span> <span class="n">feature</span> <span class="n">importance</span> <span class="k">using</span> <span class="k">Cross</span><span class="o">-</span><span class="n">Validation</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">.</span> <span class="n">Remove</span> <span class="ss">`step`</span> <span class="n">lowest</span> <span class="n">importance</span> <span class="n">features</span><span class="p">.</span>
 </code></pre></div>
 
 <p>The functionality is similar to <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFECV.html">RFECV</a>, yet it removes the lowest importance features, based on SHAP features importance. It also supports the use of any hyperparameter search schema that is consistent with sklearn API e.g. <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html">GridSearchCV</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html">RandomizedSearchCV</a> and <a href="https://scikit-optimize.github.io/stable/modules/generated/skopt.BayesSearchCV.html#skopt.BayesSearchCV">BayesSearchCV</a> passed as a <code>clf</code>, thanks to which you can perform hyperparameter optimization at each step of the search.
@@ -944,57 +944,57 @@ hyperparameters of the model at each round, to tune the model for each features 
 </style>
 <table border="1" class="dataframe">
 <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>f1</th>
-      <th>f2_missing</th>
-      <th>f3_static</th>
-      <th>f4</th>
-      <th>f5</th>
-    </tr>
-  </thead>
+<tr style="text-align: right;">
+<th></th>
+<th>f1</th>
+<th>f2_missing</th>
+<th>f3_static</th>
+<th>f4</th>
+<th>f5</th>
+</tr>
+</thead>
 <tbody>
-    <tr>
-      <th>0</th>
-      <td>3.399287</td>
-      <td>-3.902230</td>
-      <td>0</td>
-      <td>0.037207</td>
-      <td>-0.211075</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>-2.480698</td>
-      <td>0.772855</td>
-      <td>0</td>
-      <td>0.302824</td>
-      <td>0.729950</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>-0.690014</td>
-      <td>1.350847</td>
-      <td>0</td>
-      <td>1.837895</td>
-      <td>-0.745689</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>-5.291164</td>
-      <td>4.559465</td>
-      <td>0</td>
-      <td>-1.277930</td>
-      <td>3.688404</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>-1.028435</td>
-      <td>1.505766</td>
-      <td>0</td>
-      <td>-0.576209</td>
-      <td>-0.790525</td>
-    </tr>
-  </tbody>
+<tr>
+<th>0</th>
+<td>3.399287</td>
+<td>-3.902230</td>
+<td>0</td>
+<td>0.037207</td>
+<td>-0.211075</td>
+</tr>
+<tr>
+<th>1</th>
+<td>-2.480698</td>
+<td>0.772855</td>
+<td>0</td>
+<td>0.302824</td>
+<td>0.729950</td>
+</tr>
+<tr>
+<th>2</th>
+<td>-0.690014</td>
+<td>1.350847</td>
+<td>0</td>
+<td>1.837895</td>
+<td>-0.745689</td>
+</tr>
+<tr>
+<th>3</th>
+<td>-5.291164</td>
+<td>4.559465</td>
+<td>0</td>
+<td>-1.277930</td>
+<td>3.688404</td>
+</tr>
+<tr>
+<th>4</th>
+<td>-1.028435</td>
+<td>1.505766</td>
+<td>0</td>
+<td>-0.576209</td>
+<td>-0.790525</td>
+</tr>
+</tbody>
 </table>
 </div>
 </div>
@@ -1079,93 +1079,93 @@ We recommend using <a href="https://lightgbm.readthedocs.io/en/latest/pythonapi/
 </style>
 <table border="1" class="dataframe">
 <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>num_features</th>
-      <th>features_set</th>
-      <th>val_metric_mean</th>
-    </tr>
-  </thead>
+<tr style="text-align: right;">
+<th></th>
+<th>num_features</th>
+<th>features_set</th>
+<th>val_metric_mean</th>
+</tr>
+</thead>
 <tbody>
-    <tr>
-      <th>1</th>
-      <td>20</td>
-      <td>[f1, f2_missing, f3_static, f4, f5, f6, f7, f8...</td>
-      <td>0.922</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>16</td>
-      <td>[f17, f19, f20, f8, f1, f9, f4, f18, f16, f14,...</td>
-      <td>0.922</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>13</td>
-      <td>[f20, f19, f8, f1, f9, f18, f16, f14, f11, f5,...</td>
-      <td>0.923</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>11</td>
-      <td>[f18, f20, f19, f16, f8, f14, f11, f5, f9, f10...</td>
-      <td>0.923</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>9</td>
-      <td>[f20, f19, f16, f8, f14, f11, f5, f9, f15]</td>
-      <td>0.904</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>8</td>
-      <td>[f20, f19, f16, f8, f14, f5, f9, f15]</td>
-      <td>0.910</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>7</td>
-      <td>[f20, f19, f16, f8, f14, f9, f15]</td>
-      <td>0.905</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>6</td>
-      <td>[f20, f19, f16, f14, f9, f15]</td>
-      <td>0.917</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>5</td>
-      <td>[f19, f16, f14, f9, f15]</td>
-      <td>0.889</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>4</td>
-      <td>[f19, f9, f16, f14]</td>
-      <td>0.877</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>3</td>
-      <td>[f19, f16, f9]</td>
-      <td>0.867</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>2</td>
-      <td>[f19, f16]</td>
-      <td>0.818</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>1</td>
-      <td>[f16]</td>
-      <td>0.720</td>
-    </tr>
-  </tbody>
+<tr>
+<th>1</th>
+<td>20</td>
+<td>[f1, f2_missing, f3_static, f4, f5, f6, f7, f8...</td>
+<td>0.922</td>
+</tr>
+<tr>
+<th>2</th>
+<td>16</td>
+<td>[f17, f19, f20, f8, f1, f9, f4, f18, f16, f14,...</td>
+<td>0.922</td>
+</tr>
+<tr>
+<th>3</th>
+<td>13</td>
+<td>[f20, f19, f8, f1, f9, f18, f16, f14, f11, f5,...</td>
+<td>0.923</td>
+</tr>
+<tr>
+<th>4</th>
+<td>11</td>
+<td>[f18, f20, f19, f16, f8, f14, f11, f5, f9, f10...</td>
+<td>0.923</td>
+</tr>
+<tr>
+<th>5</th>
+<td>9</td>
+<td>[f20, f19, f16, f8, f14, f11, f5, f9, f15]</td>
+<td>0.904</td>
+</tr>
+<tr>
+<th>6</th>
+<td>8</td>
+<td>[f20, f19, f16, f8, f14, f5, f9, f15]</td>
+<td>0.910</td>
+</tr>
+<tr>
+<th>7</th>
+<td>7</td>
+<td>[f20, f19, f16, f8, f14, f9, f15]</td>
+<td>0.905</td>
+</tr>
+<tr>
+<th>8</th>
+<td>6</td>
+<td>[f20, f19, f16, f14, f9, f15]</td>
+<td>0.917</td>
+</tr>
+<tr>
+<th>9</th>
+<td>5</td>
+<td>[f19, f16, f14, f9, f15]</td>
+<td>0.889</td>
+</tr>
+<tr>
+<th>10</th>
+<td>4</td>
+<td>[f19, f9, f16, f14]</td>
+<td>0.877</td>
+</tr>
+<tr>
+<th>11</th>
+<td>3</td>
+<td>[f19, f16, f9]</td>
+<td>0.867</td>
+</tr>
+<tr>
+<th>12</th>
+<td>2</td>
+<td>[f19, f16]</td>
+<td>0.818</td>
+</tr>
+<tr>
+<th>13</th>
+<td>1</td>
+<td>[f16]</td>
+<td>0.720</td>
+</tr>
+</tbody>
 </table>
 </div>
 </div>
@@ -1371,7 +1371,10 @@ L 0 3.5
       </g>
      </g>
      <g id="text_1">
-      <!-- 4 -->
+      
+<!-- 4 -->
+
+
       <g transform="translate(366.822443 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 37.796875 64.3125 
@@ -1403,7 +1406,10 @@ z
       </g>
      </g>
      <g id="text_2">
-      <!-- 5 -->
+      
+<!-- 5 -->
+
+
       <g transform="translate(347.799716 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 10.796875 72.90625 
@@ -1442,7 +1448,10 @@ z
       </g>
      </g>
      <g id="text_3">
-      <!-- 6 -->
+      
+<!-- 6 -->
+
+
       <g transform="translate(328.776989 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 33.015625 40.375 
@@ -1487,7 +1496,10 @@ z
       </g>
      </g>
      <g id="text_4">
-      <!-- 7 -->
+      
+<!-- 7 -->
+
+
       <g transform="translate(309.754261 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 8.203125 72.90625 
@@ -1511,7 +1523,10 @@ z
       </g>
      </g>
      <g id="text_5">
-      <!-- 8 -->
+      
+<!-- 8 -->
+
+
       <g transform="translate(290.731534 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 31.78125 34.625 
@@ -1565,7 +1580,10 @@ z
       </g>
      </g>
      <g id="text_6">
-      <!-- 9 -->
+      
+<!-- 9 -->
+
+
       <g transform="translate(271.708807 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 10.984375 1.515625 
@@ -1610,7 +1628,10 @@ z
       </g>
      </g>
      <g id="text_7">
-      <!-- 10 -->
+      
+<!-- 10 -->
+
+
       <g transform="translate(249.50483 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 12.40625 8.296875 
@@ -1660,7 +1681,10 @@ z
       </g>
      </g>
      <g id="text_8">
-      <!-- 11 -->
+      
+<!-- 11 -->
+
+
       <g transform="translate(230.482102 254.356562)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-49"/>
        <use x="63.623047" xlink:href="#DejaVuSans-49"/>
@@ -1674,7 +1698,10 @@ z
       </g>
      </g>
      <g id="text_9">
-      <!-- 13 -->
+      
+<!-- 13 -->
+
+
       <g transform="translate(192.436648 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 40.578125 39.3125 
@@ -1722,7 +1749,10 @@ z
       </g>
      </g>
      <g id="text_10">
-      <!-- 15 -->
+      
+<!-- 15 -->
+
+
       <g transform="translate(154.391193 254.356562)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-49"/>
        <use x="63.623047" xlink:href="#DejaVuSans-53"/>
@@ -1736,7 +1766,10 @@ z
       </g>
      </g>
      <g id="text_11">
-      <!-- 17 -->
+      
+<!-- 17 -->
+
+
       <g transform="translate(116.345739 254.356562)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-49"/>
        <use x="63.623047" xlink:href="#DejaVuSans-55"/>
@@ -1750,7 +1783,10 @@ z
       </g>
      </g>
      <g id="text_12">
-      <!-- 20 -->
+      
+<!-- 20 -->
+
+
       <g transform="translate(59.277557 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 19.1875 8.296875 
@@ -1784,7 +1820,10 @@ z
      </g>
     </g>
     <g id="text_13">
-     <!-- Number of features -->
+     
+<!-- Number of features -->
+
+
      <g transform="translate(169.084375 268.034687)scale(0.1 -0.1)">
       <defs>
        <path d="M 9.8125 72.90625 
@@ -2075,7 +2114,10 @@ L -3.5 0
       </g>
      </g>
      <g id="text_14">
-      <!-- 0.84 -->
+      
+<!-- 0.84 -->
+
+
       <g transform="translate(21.15625 241.335441)scale(0.1 -0.1)">
        <defs>
         <path d="M 10.6875 12.40625 
@@ -2099,7 +2141,10 @@ z
       </g>
      </g>
      <g id="text_15">
-      <!-- 0.86 -->
+      
+<!-- 0.86 -->
+
+
       <g transform="translate(21.15625 210.688507)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-48"/>
        <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -2115,7 +2160,10 @@ z
       </g>
      </g>
      <g id="text_16">
-      <!-- 0.88 -->
+      
+<!-- 0.88 -->
+
+
       <g transform="translate(21.15625 180.041572)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-48"/>
        <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -2131,7 +2179,10 @@ z
       </g>
      </g>
      <g id="text_17">
-      <!-- 0.90 -->
+      
+<!-- 0.90 -->
+
+
       <g transform="translate(21.15625 149.394638)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-48"/>
        <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -2147,7 +2198,10 @@ z
       </g>
      </g>
      <g id="text_18">
-      <!-- 0.92 -->
+      
+<!-- 0.92 -->
+
+
       <g transform="translate(21.15625 118.747703)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-48"/>
        <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -2163,7 +2217,10 @@ z
       </g>
      </g>
      <g id="text_19">
-      <!-- 0.94 -->
+      
+<!-- 0.94 -->
+
+
       <g transform="translate(21.15625 88.100769)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-48"/>
        <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -2179,7 +2236,10 @@ z
       </g>
      </g>
      <g id="text_20">
-      <!-- 0.96 -->
+      
+<!-- 0.96 -->
+
+
       <g transform="translate(21.15625 57.453834)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-48"/>
        <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -2195,7 +2255,10 @@ z
       </g>
      </g>
      <g id="text_21">
-      <!-- 0.98 -->
+      
+<!-- 0.98 -->
+
+
       <g transform="translate(21.15625 26.8069)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-48"/>
        <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -2205,7 +2268,10 @@ z
      </g>
     </g>
     <g id="text_22">
-     <!-- Performance roc_auc -->
+     
+<!-- Performance roc_auc -->
+
+
      <g transform="translate(14.798438 183.542812)rotate(-90)scale(0.1 -0.1)">
       <defs>
        <path d="M 19.671875 64.796875 
@@ -2347,7 +2413,10 @@ L 385.221875 22.318125
 " style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"/>
    </g>
    <g id="text_23">
-    <!-- Backwards Feature Elimination using SHAP &amp; CV -->
+    
+<!-- Backwards Feature Elimination using SHAP &amp; CV -->
+
+
     <g transform="translate(72.434375 16.318125)scale(0.12 -0.12)">
      <defs>
       <path d="M 19.671875 34.8125 
@@ -2706,7 +2775,10 @@ L 79.421875 210.500312
     </g>
     <g id="line2d_24"/>
     <g id="text_24">
-     <!-- Train Score -->
+     
+<!-- Train Score -->
+
+
      <g transform="translate(87.421875 214.000312)scale(0.1 -0.1)">
       <defs>
        <path d="M -0.296875 72.90625 
@@ -2740,7 +2812,10 @@ L 79.421875 225.178437
     </g>
     <g id="line2d_26"/>
     <g id="text_25">
-     <!-- Validation Score -->
+     
+<!-- Validation Score -->
+
+
      <g transform="translate(87.421875 228.678437)scale(0.1 -0.1)">
       <use xlink:href="#DejaVuSans-86"/>
       <use x="60.658203" xlink:href="#DejaVuSans-97"/>
@@ -2967,7 +3042,10 @@ L 0 3.5
       </g>
      </g>
      <g id="text_1">
-      <!-- 1 -->
+      
+<!-- 1 -->
+
+
       <g transform="translate(366.822443 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 12.40625 8.296875 
@@ -2995,7 +3073,10 @@ z
       </g>
      </g>
      <g id="text_2">
-      <!-- 2 -->
+      
+<!-- 2 -->
+
+
       <g transform="translate(350.803304 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 19.1875 8.296875 
@@ -3034,7 +3115,10 @@ z
       </g>
      </g>
      <g id="text_3">
-      <!-- 3 -->
+      
+<!-- 3 -->
+
+
       <g transform="translate(334.784166 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 40.578125 39.3125 
@@ -3081,7 +3165,10 @@ z
       </g>
      </g>
      <g id="text_4">
-      <!-- 4 -->
+      
+<!-- 4 -->
+
+
       <g transform="translate(318.765027 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 37.796875 64.3125 
@@ -3113,7 +3200,10 @@ z
       </g>
      </g>
      <g id="text_5">
-      <!-- 5 -->
+      
+<!-- 5 -->
+
+
       <g transform="translate(302.745888 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 10.796875 72.90625 
@@ -3152,7 +3242,10 @@ z
       </g>
      </g>
      <g id="text_6">
-      <!-- 6 -->
+      
+<!-- 6 -->
+
+
       <g transform="translate(286.726749 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 33.015625 40.375 
@@ -3197,7 +3290,10 @@ z
       </g>
      </g>
      <g id="text_7">
-      <!-- 7 -->
+      
+<!-- 7 -->
+
+
       <g transform="translate(270.707611 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 8.203125 72.90625 
@@ -3221,7 +3317,10 @@ z
       </g>
      </g>
      <g id="text_8">
-      <!-- 8 -->
+      
+<!-- 8 -->
+
+
       <g transform="translate(254.688472 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 31.78125 34.625 
@@ -3275,7 +3374,10 @@ z
       </g>
      </g>
      <g id="text_9">
-      <!-- 9 -->
+      
+<!-- 9 -->
+
+
       <g transform="translate(238.669333 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 10.984375 1.515625 
@@ -3320,7 +3422,10 @@ z
       </g>
      </g>
      <g id="text_10">
-      <!-- 11 -->
+      
+<!-- 11 -->
+
+
       <g transform="translate(203.449806 254.356562)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-49"/>
        <use x="63.623047" xlink:href="#DejaVuSans-49"/>
@@ -3334,7 +3439,10 @@ z
       </g>
      </g>
      <g id="text_11">
-      <!-- 13 -->
+      
+<!-- 13 -->
+
+
       <g transform="translate(171.411528 254.356562)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-49"/>
        <use x="63.623047" xlink:href="#DejaVuSans-51"/>
@@ -3348,7 +3456,10 @@ z
       </g>
      </g>
      <g id="text_12">
-      <!-- 16 -->
+      
+<!-- 16 -->
+
+
       <g transform="translate(123.354112 254.356562)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-49"/>
        <use x="63.623047" xlink:href="#DejaVuSans-54"/>
@@ -3362,7 +3473,10 @@ z
       </g>
      </g>
      <g id="text_13">
-      <!-- 20 -->
+      
+<!-- 20 -->
+
+
       <g transform="translate(59.277557 254.356562)scale(0.1 -0.1)">
        <defs>
         <path d="M 31.78125 66.40625 
@@ -3393,7 +3507,10 @@ z
      </g>
     </g>
     <g id="text_14">
-     <!-- Number of features -->
+     
+<!-- Number of features -->
+
+
      <g transform="translate(169.084375 268.034687)scale(0.1 -0.1)">
       <defs>
        <path d="M 9.8125 72.90625 
@@ -3684,7 +3801,10 @@ L -3.5 0
       </g>
      </g>
      <g id="text_15">
-      <!-- 0.70 -->
+      
+<!-- 0.70 -->
+
+
       <g transform="translate(21.15625 215.883162)scale(0.1 -0.1)">
        <defs>
         <path d="M 10.6875 12.40625 
@@ -3708,7 +3828,10 @@ z
       </g>
      </g>
      <g id="text_16">
-      <!-- 0.75 -->
+      
+<!-- 0.75 -->
+
+
       <g transform="translate(21.15625 182.937707)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-48"/>
        <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -3724,7 +3847,10 @@ z
       </g>
      </g>
      <g id="text_17">
-      <!-- 0.80 -->
+      
+<!-- 0.80 -->
+
+
       <g transform="translate(21.15625 149.992253)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-48"/>
        <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -3740,7 +3866,10 @@ z
       </g>
      </g>
      <g id="text_18">
-      <!-- 0.85 -->
+      
+<!-- 0.85 -->
+
+
       <g transform="translate(21.15625 117.046798)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-48"/>
        <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -3756,7 +3885,10 @@ z
       </g>
      </g>
      <g id="text_19">
-      <!-- 0.90 -->
+      
+<!-- 0.90 -->
+
+
       <g transform="translate(21.15625 84.101344)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-48"/>
        <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -3772,7 +3904,10 @@ z
       </g>
      </g>
      <g id="text_20">
-      <!-- 0.95 -->
+      
+<!-- 0.95 -->
+
+
       <g transform="translate(21.15625 51.155889)scale(0.1 -0.1)">
        <use xlink:href="#DejaVuSans-48"/>
        <use x="63.623047" xlink:href="#DejaVuSans-46"/>
@@ -3782,7 +3917,10 @@ z
      </g>
     </g>
     <g id="text_21">
-     <!-- Performance roc_auc -->
+     
+<!-- Performance roc_auc -->
+
+
      <g transform="translate(14.798438 183.542812)rotate(-90)scale(0.1 -0.1)">
       <defs>
        <path d="M 19.671875 64.796875 
@@ -3926,7 +4064,10 @@ L 385.221875 22.318125
 " style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"/>
    </g>
    <g id="text_22">
-    <!-- Backwards Feature Elimination using SHAP &amp; CV -->
+    
+<!-- Backwards Feature Elimination using SHAP &amp; CV -->
+
+
     <g transform="translate(72.434375 16.318125)scale(0.12 -0.12)">
      <defs>
       <path d="M 19.671875 34.8125 
@@ -4285,7 +4426,10 @@ L 79.421875 210.500312
     </g>
     <g id="line2d_23"/>
     <g id="text_23">
-     <!-- Train Score -->
+     
+<!-- Train Score -->
+
+
      <g transform="translate(87.421875 214.000312)scale(0.1 -0.1)">
       <defs>
        <path d="M -0.296875 72.90625 
@@ -4319,7 +4463,10 @@ L 79.421875 225.178437
     </g>
     <g id="line2d_25"/>
     <g id="text_24">
-     <!-- Validation Score -->
+     
+<!-- Validation Score -->
+
+
      <g transform="translate(87.421875 228.678437)scale(0.1 -0.1)">
       <use xlink:href="#DejaVuSans-86"/>
       <use x="60.658203" xlink:href="#DejaVuSans-97"/>

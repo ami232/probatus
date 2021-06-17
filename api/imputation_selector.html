@@ -900,15 +900,15 @@ added.</p>
 <span class="c1">#Create a classifier.</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
 <span class="c1">#Create the comparision of the imputation strategies.</span>
-<span class="n">cmp</span> <span class="o">=</span> <span class="n">ImputationSelector</span><span class="p">(</span>
+<span class="nb">cmp</span> <span class="o">=</span> <span class="n">ImputationSelector</span><span class="p">(</span>
     <span class="n">clf</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span>
     <span class="n">strategies</span><span class="o">=</span><span class="n">strategies</span><span class="p">,</span>
     <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
     <span class="n">model_na_support</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="n">cmp</span><span class="o">.</span><span class="n">fit_compute</span><span class="p">(</span><span class="n">X_missing</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">cmp</span><span class="o">.</span><span class="n">fit_compute</span><span class="p">(</span><span class="n">X_missing</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 <span class="c1">#Plot the results.</span>
-<span class="n">performance_plot</span><span class="o">=</span><span class="n">cmp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">performance_plot</span><span class="o">=</span><span class="nb">cmp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </code></pre></div>
 <p><img src="../img/imputation_comparision.png" width="500" /></p>
 
